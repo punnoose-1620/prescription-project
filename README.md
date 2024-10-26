@@ -31,11 +31,11 @@ We have implemented and trained the following models:
 Each model’s output metrics, confusion matrix, and ROC curve have been evaluated for performance and comparison.
 Results and Outputs
 
-    medical_data_250000.json: This file contains 250000 entries of generated medical data based on 200 different varieties of medicines. This is generated using the dummy_data_generator.py which was in turn created with the help of chatGPT.
+    medical_data_250000.json: This file contains 250000 entries of generated medical data based on 200 different varieties of medicines. This is generated using the dummy_data_generator.py which was in turn created with the help of chatGPT. This file was too big to be pushed to github so please use the dummy_data_generator.py to generate your own dataset for this project.
 
     PrescriptionTrainOutput.txt: This file contains the terminal output generated during the model training phase, including accuracy metrics, training logs, and general performance statistics.
 
-    ./saved_models/: Contains various different models trained in a similar fashion on the exact same data and has been saved as pickle binary files
+    ./saved_models/: Contains various different models trained in a similar fashion on the exact same data and has been saved as pickle binary files. The pickle file for random forest model has been excluded since it's too large to be pushed to github.
 
     Generated Graphs:
         ./generated_graphs/: Contains various visualizations that represent the dataset, such as distributions, feature importance, and class imbalance.
