@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns="http://www.knime.org/2008/09/XMLConfig" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.knime.org/2008/09/XMLConfig http://www.knime.org/XMLConfig_2008_09.xsd" key="settings.xml">
+    <entry key="node_file" type="xstring" value="settings.xml"/>
+    <config key="flow_stack"/>
+    <config key="internal_node_subsettings">
+        <entry key="memory_policy" type="xstring" value="CacheSmallInMemory"/>
+    </config>
+    <config key="model">
+        <entry key="generateImage" type="xboolean" value="false"/>
+        <entry key="width" type="xint" value="800"/>
+        <entry key="height" type="xint" value="600"/>
+    </config>
+    <config key="view">
+        <config key="xAxisColumn">
+            <entry key="selected" type="xstring" value="user_weight"/>
+            <config key="compatibleTypes_Internals">
+                <entry key="array-size" type="xint" value="8"/>
+                <entry key="0" type="xstring" value="org.knime.core.data.IntValue"/>
+                <entry key="1" type="xstring" value="org.knime.core.data.DataValue"/>
+                <entry key="2" type="xstring" value="org.knime.core.data.LongValue"/>
+                <entry key="3" type="xstring" value="org.knime.core.data.DoubleValue"/>
+                <entry key="4" type="xstring" value="org.knime.core.data.ComplexNumberValue"/>
+                <entry key="5" type="xstring" value="org.knime.core.data.FuzzyNumberValue"/>
+                <entry key="6" type="xstring" value="org.knime.core.data.FuzzyIntervalValue"/>
+                <entry key="7" type="xstring" value="org.knime.core.data.BoundedValue"/>
+            </config>
+        </config>
+        <config key="yAxisColumn">
+            <config key="selected_Internals">
+                <entry key="array-size" type="xint" value="1"/>
+                <entry key="0" type="xstring" value="risk_factor"/>
+            </config>
+            <entry key="mode" type="xstring" value="MANUAL"/>
+            <config key="patternFilter">
+                <entry key="pattern" type="xstring" value=""/>
+                <entry key="isCaseSensitive" type="xboolean" value="false"/>
+                <entry key="isInverted" type="xboolean" value="false"/>
+            </config>
+            <config key="manualFilter">
+                <config key="manuallySelected">
+                    <entry key="array-size" type="xint" value="1"/>
+                    <entry key="0" type="xstring" value="risk_factor"/>
+                </config>
+                <config key="manuallyDeselected">
+                    <entry key="array-size" type="xint" value="55"/>
+                    <entry key="0" type="xstring" value="user_id"/>
+                    <entry key="1" type="xstring" value="user_weight"/>
+                    <entry key="2" type="xstring" value="user_height"/>
+                    <entry key="3" type="xstring" value="prescribed_daily_dose"/>
+                    <entry key="4" type="xstring" value="maximum_daily_dosage"/>
+                    <entry key="5" type="xstring" value="risk_dosage"/>
+                    <entry key="6" type="xstring" value="daily_usage"/>
+                    <entry key="7" type="xstring" value="antibiotic"/>
+                    <entry key="8" type="xstring" value="alpha blocker"/>
+                    <entry key="9" type="xstring" value="vasodilator"/>
+                    <entry key="10" type="xstring" value="opioid analgesic"/>
+                    <entry key="11" type="xstring" value="PPI"/>
+                    <entry key="12" type="xstring" value="vitamin D"/>
+                    <entry key="13" type="xstring" value="antidiabetic"/>
+                    <entry key="14" type="xstring" value="antipsychotic"/>
+                    <entry key="15" type="xstring" value="corticosteroid"/>
+                    <entry key="16" type="xstring" value="adrenergic agonist"/>
+                    <entry key="17" type="xstring" value="dopamine agonist"/>
+                    <entry key="18" type="xstring" value="vitamin"/>
+                    <entry key="19" type="xstring" value="anticonvulsant"/>
+                    <entry key="20" type="xstring" value="anticoagulant"/>
+                    <entry key="21" type="xstring" value="NSAID"/>
+                    <entry key="22" type="xstring" value="antihistamine"/>
+                    <entry key="23" type="xstring" value="thyroid hormone"/>
+                    <entry key="24" type="xstring" value="beta blocker"/>
+                    <entry key="25" type="xstring" value="H2 antagonist"/>
+                    <entry key="26" type="xstring" value="benzodiazepine"/>
+                    <entry key="27" type="xstring" value="diuretic"/>
+                    <entry key="28" type="xstring" value="antidepressant"/>
+                    <entry key="29" type="xstring" value="antimetabolite"/>
+                    <entry key="30" type="xstring" value="anxiolytic"/>
+                    <entry key="31" type="xstring" value="antiplatelet"/>
+                    <entry key="32" type="xstring" value="muscle relaxant"/>
+                    <entry key="33" type="xstring" value="cholinesterase inhibitor"/>
+                    <entry key="34" type="xstring" value="antihypertensive"/>
+                    <entry key="35" type="xstring" value="sedative"/>
+                    <entry key="36" type="xstring" value="mood stabilizer"/>
+                    <entry key="37" type="xstring" value="antiemetic"/>
+                    <entry key="38" type="xstring" value="alkalinizing agent"/>
+                    <entry key="39" type="xstring" value="anticholinergic"/>
+                    <entry key="40" type="xstring" value="migraine medication"/>
+                    <entry key="41" type="xstring" value="lipid-lowering agent"/>
+                    <entry key="42" type="xstring" value="leukotriene receptor antagonist"/>
+                    <entry key="43" type="xstring" value="smoking cessation"/>
+                    <entry key="44" type="xstring" value="mucolytic"/>
+                    <entry key="45" type="xstring" value="5-alpha reductase inhibitor"/>
+                    <entry key="46" type="xstring" value="calcium channel blocker"/>
+                    <entry key="47" type="xstring" value="erectile dysfunction"/>
+                    <entry key="48" type="xstring" value="hormone"/>
+                    <entry key="49" type="xstring" value="capsule"/>
+                    <entry key="50" type="xstring" value="tablet"/>
+                    <entry key="51" type="xstring" value="sublingual tablet"/>
+                    <entry key="52" type="xstring" value="inhaler"/>
+                    <entry key="53" type="xstring" value="injection"/>
+                    <entry key="54" type="xstring" value="patch"/>
+                </config>
+                <entry key="includeUnknownColumns" type="xboolean" value="false"/>
+            </config>
+            <config key="typeFilter">
+                <config key="selectedTypes">
+                    <entry key="array-size" type="xint" value="0"/>
+                </config>
+            </config>
+        </config>
+        <entry key="maxRows" type="xint" value="2500"/>
+        <entry key="title" type="xstring" value="Line Plot"/>
+        <entry key="axisExtentMethod" type="xstring" value="AUTO"/>
+        <config key="manualAxisLimits">
+            <entry key="xAxisManualMin" type="xdouble" value="0.0"/>
+            <entry key="xAxisManualMax" type="xdouble" value="100.0"/>
+            <entry key="yAxisManualMin" type="xdouble" value="0.0"/>
+            <entry key="yAxisManualMax" type="xdouble" value="100.0"/>
+        </config>
+        <entry key="useCustomXAxisLabel" type="xboolean" value="false"/>
+        <entry key="customXAxisLabel" type="xstring" isnull="true" value=""/>
+        <entry key="useCustomYAxisLabel" type="xboolean" value="true"/>
+        <entry key="customYAxisLabel" type="xstring" value=""/>
+        <entry key="yAxisScale" type="xstring" value="VALUE"/>
+        <entry key="lineSize" type="xint" value="2"/>
+        <entry key="showDataPointMarkers" type="xboolean" value="false"/>
+        <entry key="dataPointMarkerSize" type="xint" value="5"/>
+        <entry key="timeFormat" type="xstring" value=""/>
+        <entry key="allowImageDownload" type="xboolean" value="true"/>
+        <entry key="enableDataZoom" type="xboolean" value="true"/>
+        <entry key="showTooltip" type="xboolean" value="true"/>
+        <entry key="enableAnimation" type="xboolean" value="true"/>
+    </config>
+    <config key="view_variables"/>
+    <config key="nodeAnnotation">
+        <entry key="text" type="xstring" value="user_weight vs risk_factor%%00010Graph"/>
+        <entry key="contentType" type="xstring" value="text/plain"/>
+        <entry key="bgcolor" type="xint" value="16777215"/>
+        <entry key="x-coordinate" type="xint" value="0"/>
+        <entry key="y-coordinate" type="xint" value="0"/>
+        <entry key="width" type="xint" value="0"/>
+        <entry key="height" type="xint" value="0"/>
+        <entry key="alignment" type="xstring" value="CENTER"/>
+        <entry key="borderSize" type="xint" value="0"/>
+        <entry key="borderColor" type="xint" value="0"/>
+        <entry key="defFontSize" type="xint" value="-1"/>
+        <entry key="annotation-version" type="xint" value="20230412"/>
+        <config key="styles"/>
+    </config>
+    <entry key="customDescription" type="xstring" isnull="true" value=""/>
+    <entry key="state" type="xstring" value="EXECUTED"/>
+    <entry key="factory" type="xstring" value="org.knime.base.views.node.lineplot.LinePlotNodeFactory"/>
+    <entry key="node-name" type="xstring" value="Line Plot"/>
+    <entry key="node-bundle-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-bundle-symbolic-name" type="xstring" value="org.knime.base.views"/>
+    <entry key="node-bundle-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-bundle-version" type="xstring" value="5.3.2.v202409040940"/>
+    <entry key="node-feature-name" type="xstring" value="KNIME Views"/>
+    <entry key="node-feature-symbolic-name" type="xstring" value="org.knime.features.base.views.feature.group"/>
+    <entry key="node-feature-vendor" type="xstring" value="KNIME AG, Zurich, Switzerland"/>
+    <entry key="node-feature-version" type="xstring" value="5.3.2.v202409040940"/>
+    <config key="factory_settings"/>
+    <config key="node_creation_config">
+        <config key="Input Table"/>
+        <config key="Output Image"/>
+    </config>
+    <entry key="name" type="xstring" value="Line Plot"/>
+    <entry key="hasContent" type="xboolean" value="true"/>
+    <entry key="isInactive" type="xboolean" value="false"/>
+    <config key="ports"/>
+    <config key="internalObjects">
+        <entry key="location" type="xstring" value="internalTables"/>
+        <config key="content">
+            <config key="object_0">
+                <entry key="index" type="xint" value="0"/>
+                <entry key="type" type="xstring" value="table"/>
+                <entry key="table_dir_location" type="xstring" value="object_0"/>
+            </config>
+        </config>
+    </config>
+    <config key="filestores">
+        <entry key="file_store_location" type="xstring" isnull="true" value=""/>
+        <entry key="file_store_id" type="xstring" value="841f9492-bddb-4ece-8b2b-256cfc4b021d"/>
+    </config>
+</config>
