@@ -10,7 +10,6 @@ from sklearn.metrics import accuracy_score
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.neural_network import MLPClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.model_selection import train_test_split
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 
 class LogisticRegressionWithProgress(LogisticRegression):
@@ -46,8 +45,8 @@ def logistic_regression(X_train, X_test, y_train, y_test):
     plot_confusion_matrix(y_train, y_train_pred, title="Logistic Regression Train Confusion Matrix", save_path="logistic_regression_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="Logistic Regression Test Confusion Matrix", save_path="logistic_regression_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="Logistic Regression Train ROC Curve", save_path="logistic_regression_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="Logistic Regression Test ROC Curve", save_path="logistic_regression_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="Logistic Regression Train ROC Curve", save_path="logistic_regression_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="Logistic Regression Test ROC Curve", save_path="logistic_regression_test_roc_curve.png")
     return model, test_accuracy
 
 def decision_tree(X_train, X_test, y_train, y_test, input_size):
@@ -66,8 +65,8 @@ def decision_tree(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="Decision Tree Train Confusion Matrix", save_path="decision_tree_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="Decision Tree Test Confusion Matrix", save_path="decision_tree_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="Decision Tree Train ROC Curve", save_path="decision_tree_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="Decision Tree Test ROC Curve", save_path="decision_tree_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="Decision Tree Train ROC Curve", save_path="decision_tree_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="Decision Tree Test ROC Curve", save_path="decision_tree_test_roc_curve.png")
     return model, test_accuracy
 
 def random_forest(X_train, X_test, y_train, y_test, input_size):
@@ -90,8 +89,8 @@ def random_forest(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="Random Forest Train Confusion Matrix", save_path="random_forest_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="Random Forest Test Confusion Matrix", save_path="random_forest_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="Random Forest Train ROC Curve", save_path="random_forest_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="Random Forest Test ROC Curve", save_path="random_forest_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="Random Forest Train ROC Curve", save_path="random_forest_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="Random Forest Test ROC Curve", save_path="random_forest_test_roc_curve.png")
     return model, test_accuracy
 
 def gradient_boosting(X_train, X_test, y_train, y_test, input_size):
@@ -114,8 +113,8 @@ def gradient_boosting(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="Gradient Boosting Train Confusion Matrix", save_path="gradient_boosting_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="Gradient Boosting Test Confusion Matrix", save_path="gradient_boosting_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="Gradient Boosting Train ROC Curve", save_path="gradient_boosting_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="Gradient Boosting Test ROC Curve", save_path="gradient_boosting_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="Gradient Boosting Train ROC Curve", save_path="gradient_boosting_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="Gradient Boosting Test ROC Curve", save_path="gradient_boosting_test_roc_curve.png")
     return model, test_accuracy
 
 def support_vector_machine(X_train, X_test, y_train, y_test, input_size):
@@ -155,8 +154,8 @@ def support_vector_machine(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="SVM Train Confusion Matrix", save_path="svm_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="SVM Test Confusion Matrix", save_path="svm_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="SVM Train ROC Curve", save_path="svm_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="SVM Test ROC Curve", save_path="svm_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="SVM Train ROC Curve", save_path="svm_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="SVM Test ROC Curve", save_path="svm_test_roc_curve.png")
     return model, test_accuracy
 
 def neural_network(X_train, X_test, y_train, y_test, input_size):
@@ -180,8 +179,8 @@ def neural_network(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="Neural Network Train Confusion Matrix", save_path="neural_network_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="Neural Network Test Confusion Matrix", save_path="neural_network_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="Neural Network Train ROC Curve", save_path="neural_network_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="Neural Network Test ROC Curve", save_path="neural_network_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="Neural Network Train ROC Curve", save_path="neural_network_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="Neural Network Test ROC Curve", save_path="neural_network_test_roc_curve.png")
     return model, test_accuracy
 
 def xgboost_classifier(X_train, X_test, y_train, y_test, input_size):
@@ -206,6 +205,6 @@ def xgboost_classifier(X_train, X_test, y_train, y_test, input_size):
     plot_confusion_matrix(y_train, y_train_pred, title="XG Boost Train Confusion Matrix", save_path="xgboost_train_confusion_matrix.png")
     plot_confusion_matrix(y_test, y_test_pred, title="XG Boost Test Confusion Matrix", save_path="xgboost_test_confusion_matrix.png")
     # Plot ROC Curve for both
-    plot_roc_curve(y_train, y_score_train, num_classes=15, title="XG Boost Train ROC Curve", save_path="xgboost_train_roc_curve.png")
-    plot_roc_curve(y_test, y_score_test, num_classes=15, title="XG Boost Test ROC Curve", save_path="xgboost_test_roc_curve.png")
+    # plot_roc_curve(y_train, y_score_train, num_classes=15, title="XG Boost Train ROC Curve", save_path="xgboost_train_roc_curve.png")
+    # plot_roc_curve(y_test, y_score_test, num_classes=15, title="XG Boost Test ROC Curve", save_path="xgboost_test_roc_curve.png")
     return model, test_accuracy

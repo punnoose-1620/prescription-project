@@ -73,18 +73,35 @@ def add_type_flags(entry, key, comparator):
     del entry[key]
     return entry
 
+def calculate_BMI(entry):
+    weight = float(entry['user_weight'])
+    height = float(entry['user_height'])
+    bmi = height/weight
+    entry['user_bmi'] = bmi
+    del entry['user_height']
+    del entry['user_weight']
+    return entry
+
 def calculate_usage(entry):
     prescriptions_fillings = list(entry['prescription_collections'])
     last_refill = str(datetime.now().date())
     previous_refill = str(datetime.now().date())
+    before_refill = str(datetime.now().date())
     amount = 0
+    prev_amount = 0
     if len(prescriptions_fillings)>=1:
         last_refill = str(prescriptions_fillings[-1]['date'])
         amount = prescriptions_fillings[-1]['quantity']
         if len(prescriptions_fillings)>1:
             previous_refill = str(prescriptions_fillings[-2]['date'])
+            prev_amount = prescriptions_fillings[-2]['quantity']
+        if len(prescriptions_fillings)>2:
+            before_refill = str(prescriptions_fillings[-3]['date'])
 
     date_format = "%Y-%m-%d"
+    # Parse the given date string into a datetime object
+    old_date = datetime.strptime(before_refill, date_format)
+
     # Parse the given date string into a datetime object
     given_date = datetime.strptime(previous_refill, date_format)
     
@@ -99,6 +116,15 @@ def calculate_usage(entry):
         usage = amount/count_for_days
         
     entry['daily_usage'] = usage
+
+    # Calculate difference in days for previous usage
+    old_difference = given_date-old_date
+    old_count_for__days = old_difference.days
+    old_usage = 0
+    if old_count_for__days>0:
+        usage = prev_amount/old_count_for__days
+
+    entry['prev_daily_usage'] = usage
     del entry['prescription_collections']
 
     return entry
@@ -128,7 +154,7 @@ def open_and_process_file(file_path, type='other'):
             if type=='self':
                 progress_title = 'Converting to new Data'
 
-            for entry in data:
+            for entry in tqdm(data, desc="Logging unique entry types...."):
                 # First note all existing prescription classes and type classes and write them to pickle files for later reference
                 get_item_names(entry, 'prescription_classes')
                 entry['medicine_type'] = [entry['medicine_type']]
@@ -151,8 +177,11 @@ def open_and_process_file(file_path, type='other'):
                 else:
                     del entry['user_id']
                 
-                entry['user_weight'] = entry['user_weight']
-                entry['user_height'] = entry['user_height']
+                if type=='self':
+                    entry['user_weight'] = entry['user_weight']
+                    entry['user_height'] = entry['user_height']
+                else:
+                    entry = calculate_BMI(entry)
                 
                 # Convert medicine names to numeric equivalents
                 if type!='self':
@@ -190,10 +219,30 @@ def open_and_process_file(file_path, type='other'):
                     entry['risk_condition'] = str(entry['risk_condition'])
 
                 # Add flags based on prescription classes
-                entry = add_type_flags(entry, 'prescription_classes', prescription_classes)
+                if type=='self':
+                    entry = add_type_flags(entry, 'prescription_classes', prescription_classes)
+                else:
+                    class_names = list(entry['prescription_classes'])
+                    sum = 0
+                    for item in class_names:
+                        if item not in prescription_classes:
+                            prescription_classes.append(item)
+                        sum = sum + prescription_classes.index(item)
+                    entry['prescription_class_sum'] = sum
+                    del entry['prescription_classes']
 
                 # Add flags based on medicine types
-                entry = add_type_flags(entry, 'medicine_type', medicine_types)
+                if type=='self':
+                    entry = add_type_flags(entry, 'medicine_type', medicine_types)
+                else:
+                    class_names = list(entry['medicine_type'])
+                    sum = 0
+                    for item in class_names:
+                        if item not in medicine_types:
+                            medicine_types.append(item)
+                        sum = sum + medicine_types.index(item)
+                    entry['medicine_types_sum'] = sum
+                    del entry['medicine_type']
 
                 # Convert last consultation into epoch time
                 if type!='self':
@@ -212,6 +261,13 @@ def open_and_process_file(file_path, type='other'):
             # Shuffle the processed data to avoid order based bias
             random.shuffle(data)
             print("Data Shuffling Complete....\n")
+            if type!='self':
+                keys_to_remove = ['prescription_date']
+                for entry in data:
+                    for key in keys_to_remove:
+                        del entry[key]
+                data = normalize_0_to_10(data)
+                print("Sample Data keys : ", list(data[0].keys()))
 
             return data
 
@@ -302,6 +358,35 @@ def get_daily_usage_stats_for_param(filename, key):
         print(f"The file {filename} does not exist.")
     except json.JSONDecodeError:
         print(f"Error decoding JSON in file {filename}.")
+
+def normalize_0_to_10(entries):
+    maxes = {}
+    mins = {}
+    keys = list(entries[0].keys())
+    # keys.remove('risk_condition')
+    #Find the max and min value for each key
+    for entry in entries:
+        for key in keys:
+            max_keys = maxes.keys()
+            min_keys = mins.keys()
+            if key not in max_keys:
+                maxes[key] = 0
+            elif float(maxes[key])<float(entry[key]):
+                maxes[key] = entry[key]
+            if key not in min_keys:
+                mins[key] = 200
+            elif float(mins[key])>float(entry[key]):
+                mins[key] = entry[key]
+    # min-max normalize each value
+    for entry in tqdm(entries, desc="Normalizing data...."):
+        for key in keys:
+            numerator = maxes[key] - float(entry[key])
+            denominator = maxes[key] - mins[key]
+            entry[key] = numerator * 10 / denominator
+    # Print min and max for each value
+    for key in keys:
+        print("Range of ",key," : (",mins[key],",",maxes[key],")")
+    return entries
 
 def read_data_from_csv(key, filename):
     values = []

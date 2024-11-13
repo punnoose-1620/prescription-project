@@ -54,7 +54,7 @@ check_inputs(processed_data)
 
 # plot_connection_graphs()
 
-print("Sample Entry : ",json.dumps(processed_data[0], indent=4))
+# print("Sample Entry : ",json.dumps(processed_data[0], indent=4))
 print("Data Count after processing : ",insert_commas_to_number(len(processed_data)),'\n')
 
 # Assuming processed_data is a list of dictionaries from your JSON
@@ -79,28 +79,28 @@ input_param_size = len(X_test[0].keys())
 
 logistic_regression_model, lt_accuracy = logistic_regression(X_train, X_test_pd, y_train, y_test_pd)
 save_model('logistic_regression_model', logistic_regression_model)
-print("\nAccuracy of Logistic Model : ",lt_accuracy*1000,'\n')
+print("\nAccuracy of Logistic Model : ",lt_accuracy*100,'\n')
 
 decision_tree_model, dt_accuracy = decision_tree(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 save_model('decision_tree_model', decision_tree_model)
-print("\nAccuracy of Decision Tree Model : ",dt_accuracy*1000,'\n')
+print("\nAccuracy of Decision Tree Model : ",dt_accuracy*100,'\n')
 
 random_forest_model, rf_accuracy = random_forest(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 save_model('random_forest_model', random_forest_model)
-print("\nAccuracy of Random Forest Model : ",rf_accuracy*1000,'\n')
+print("\nAccuracy of Random Forest Model : ",rf_accuracy*100,'\n')
 
 gradient_boosting_model, gb_accuracy = gradient_boosting(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 save_model('gradient_boosting_model', gradient_boosting_model)
-print("\nAccuracy of Gradient Boosting Model : ",gb_accuracy*1000,'\n')
+print("\nAccuracy of Gradient Boosting Model : ",gb_accuracy*100,'\n')
 
 # support_vector_machine_model, svm_accuracy = support_vector_machine(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 # save_model('svm_model', support_vector_machine_model)
-# print("\nAccuracy of Support Vector Machine Model : ",svm_accuracy*1000,'\n')
+# print("\nAccuracy of Support Vector Machine Model : ",svm_accuracy*100,'\n')
 
 neural_network_model, nn_accuracy = neural_network(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 save_model('neural_network_model', neural_network_model)
-print("\nAccuracy of Neural Network Model : ",nn_accuracy*1000,'\n')
+print("\nAccuracy of Neural Network Model : ",nn_accuracy*100,'\n')
 
 xg_boost_model, xgb_accuracy = xgboost_classifier(X_train, X_test_pd, y_train, y_test_pd, input_param_size)
 save_model('xg_boost_model', xg_boost_model)
-print("\nAccuracy of XG Boost Model : ",xgb_accuracy*1000,'\n')
+print("\nAccuracy of XG Boost Model : ",xgb_accuracy*100,'\n')
