@@ -1,5 +1,7 @@
 # Medical Risk Prediction from Prescription Data
 
+![Generated Display Image](./prescription_project_bg.webp)
+
 This project involves the generation and analysis of a synthetic dataset to predict various medical risks associated with prescription drugs. The dataset was created with ChatGPT, containing 250,000 entries of dummy medical data. The goal is to predict medical risks—such as overdose, abuse, misuse, addiction, and other adverse conditions—based on patients' prescription collection patterns, the types and brands of medicines prescribed, and related parameters.
 Dataset Details
 
